@@ -99,12 +99,11 @@ void pall(stack_t **stack, unsigned int num_linea)
 
 	ojo = *stack;
 	if (num_linea)
-
-	  while(ojo)
-	{
-	  printf("%d\n", ojo->n);
-	  ojo = ojo->next;
-	}	
+		while(ojo)
+		{
+			printf("%d\n", ojo->n);
+			ojo = ojo->next;
+		}
 }
 
 
