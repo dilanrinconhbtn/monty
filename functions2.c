@@ -9,7 +9,7 @@ int verif(char *numero)
 
 	if (numero[ojo] == 45)
 		ojo++;
-	while(numero[ojo])
+	while (numero[ojo])
 	{
 		if (numero[ojo] < 48 || numero[ojo] > 57)
 			return (-1);
@@ -19,8 +19,10 @@ int verif(char *numero)
 }
 void nop(stack_t **stack, unsigned int num_linea)
 {
-	if (*stack){};
-	if (num_linea){};
+	if (*stack)
+	{};
+	if (num_linea)
+	{};
 }
 void sub(stack_t **stack, unsigned int num_linea)
 {
