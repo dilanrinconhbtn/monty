@@ -4,6 +4,10 @@ int verif(char *numero)
 {
 
   int ojo = 0;
+
+  if (!numero)
+    return (1);
+
   if (numero[ojo] == 45)
     ojo++;
   while(numero[ojo])
