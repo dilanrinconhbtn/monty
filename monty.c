@@ -111,16 +111,14 @@ int main(int argc,char **argv)
 	stack_t *stack;
 	FILE *fil;
 	size_t numbytes = 0;
-	char *linea = NULL;
+	char *linea = NULL, *tokens, *opco;
 	int bytesleidos = 0;
-	char *tokens;
-	char *opco;
 	unsigned int contador = 1;
 
 	if (argc)
-	  {
-
-	  }
+	{
+		
+	}
 	fil = fopen(argv[1], "r");
 	if (fil == NULL)
 		exit(EXIT_FAILURE);
@@ -136,26 +134,25 @@ int main(int argc,char **argv)
 			{
 				tokens = strtok(NULL, " ");
 				if (tokens)
-				  {
-				    if (verif(tokens) == 0)
-					hola.numero = atoi(tokens);
-				    else
-				      {
-					fprintf(stderr,"L%u: usage: push integer\n", contador);
-					free_l(&stack);
-					free(linea);
-					fclose(fil);
-					exit(1);
-				      }
-				  }
+				{
+					if (verif(tokens) == 0)
+						hola.numero = atoi(tokens);
+					else
+					{
+						fprintf(stderr,"L%u: usage: push integer\n", contador);
+						free_l(&stack);
+						free(linea);
+						fclose(fil);
+						exit(1);
+					}
+				}
 				func(opco)(&stack, contador);
 				contador++;
 			}
 		}
-	}		
+        }
 	free_l(&stack);
 	free(linea);
 	fclose(fil);
-	
 	return (0);
 }
