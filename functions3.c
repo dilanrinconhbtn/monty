@@ -11,7 +11,7 @@ void err(stack_t **stack, unsigned int x)
     {
 
     }
-  exit(1);
+  exit(EXIT_FAILURE);
 }
 
 void ver2(stack_t **stack, unsigned int contador)
@@ -24,6 +24,6 @@ if (verif(hola.token) == 0)
      free_l(stack);
      free(hola.linea);
      fclose(hola.fil);
-     exit(1);
+     exit(EXIT_FAILURE);
    }
 }
