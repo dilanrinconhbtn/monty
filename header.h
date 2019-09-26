@@ -41,4 +41,15 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+int tamanio(char *linea);
+char quitarsalto(char *linea);
+void swap(stack_t **stack,__attribute__((unused)) unsigned int num_linea);
+void add(stack_t **stack,__attribute__((unused)) unsigned int num_linea);
+void pint(stack_t **stack, unsigned int num_linea);
+void pop(stack_t **stack, unsigned int num_linea);
+void (*func(char *tokens))(stack_t **stack, unsigned int num_linea);
+int main(__attribute__((unused)) int argc, char **argv);
+void pall(stack_t **stack, unsigned int num_linea);
+void push(stack_t **stack, unsigned int num_linea);
+
 #endif
