@@ -2,8 +2,11 @@
 char *opco;
 int global;
 
-
-
+/**
+ * tamanio - size
+ * @linea: linea
+ * Return: linea
+ */
 int tamanio(char *linea)
 {
 	unsigned int contador = 0;
@@ -15,6 +18,12 @@ int tamanio(char *linea)
 	return (contador);
 }
 
+
+/**
+ * quitarsalto - remove line
+ * @linea: linea
+ * Return: linea
+ */
 char quitarsalto(char *linea)
 {
 	int ta = tamanio(linea);
@@ -23,8 +32,12 @@ char quitarsalto(char *linea)
 	return(*linea);
 }
 
-
-
+/**
+ * pop - delete first noce
+ * @stack: head of the linked list
+ * @num_linea: number of the line
+ * Return: Nothing
+ */
 void pop(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
@@ -33,7 +46,7 @@ void pop(stack_t **stack, unsigned int num_linea)
 	if (ojo == NULL)
 	{
 		printf("error en la linea %ud\n", num_linea);
-      exit(0);
+		exit(0);
 	}
 	if((*stack)->next)
 	{
@@ -45,6 +58,13 @@ void pop(stack_t **stack, unsigned int num_linea)
 		*stack = NULL;
 }
 
+/**
+ * func - pointers to functions
+ * @tokens: arguments
+ * @stack: head of the linked
+ * @num_linea: number of the line
+ * Return: NULL
+ */
 
 void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 {
@@ -80,7 +100,12 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 	return (NULL);
 }
 
-
+/**
+ * main - main function
+ * @argc: number of the arguments
+ * @argv: argument
+ * Return: Always 0
+ */
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	stack_t *stack;
