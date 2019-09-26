@@ -7,10 +7,22 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#ifdef GB
+typedef struct globales
+{
+  int numero;
+  int flag;
+} g_t;
+g_t hola;
+#else
+typedef struct globales
+{
+  int numero;
+  int flag;
+} g_t;
 
-extern char *opco;
-extern int global;
-
+extern g_t hola;
+#endif
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,6 +53,10 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void divi(stack_t **stack, unsigned int num_linea);
+void sub(stack_t **stack, unsigned int num_linea);
+void nop(stack_t **stack, unsigned int num_linea);
+int verif(char *numero);
 int tamanio(char *linea);
 char quitarsalto(char *linea);
 void swap(stack_t **stack,__attribute__((unused)) unsigned int num_linea);

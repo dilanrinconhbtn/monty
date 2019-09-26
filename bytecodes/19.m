@@ -1,4 +1,6 @@
 push 1
 push 2
-push abc
+push 15
+push 3
+div
 pall

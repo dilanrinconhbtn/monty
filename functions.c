@@ -1,5 +1,5 @@
+#define GB
 #include "header.h"
-
 
 /**
  * swap - swap function
@@ -76,24 +76,13 @@ void pall(stack_t **stack, unsigned int num_linea)
 	stack_t *ojo;
 
 	ojo = *stack;
-	if (ojo != NULL)
-	{
-		while (ojo)
-		{
+	if (num_linea)
 
-			if (ojo->n < 48 || ojo->n > 57)
-			{
-				printf("%d\n", ojo->n);
-				printf("L%ud: usage: push integer\n", num_linea);
-			}
-			else
-			{
-				printf("%d\n", ojo->n);
-				printf("%d\n", ojo->n);
-			}
-			ojo = ojo->next;
-		}
-	}
+	  while(ojo)
+	{
+	  printf("%d\n", ojo->n);
+	  ojo = ojo->next;
+	}	
 }
 
 
@@ -110,7 +99,7 @@ void push(stack_t **stack, unsigned int num_linea)
 	ojo = malloc(sizeof(stack_t));
 	if (ojo == NULL)
 		printf("Error en la linea %ud\n", num_linea);
-	ojo->n = global;
+	ojo->n = hola.numero;
 	ojo->next = NULL;
 	ojo->prev = NULL;
 	if (*stack)

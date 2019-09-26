@@ -1,6 +1,6 @@
+#define GB
 #include "header.h"
-char *opco;
-int global;
+
 
 /**
  * tamanio - size
@@ -75,10 +75,10 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		/*{"nop", nop},
-		  {"sub", sub},
-		  {"div", div},
-		  {"mul", mul},
+		{"nop", nop},
+		{"sub", sub},
+		{"div", divi},
+		/*{"mul", mul},
 		  {"mod", mod},
 		  {"pchar", pchar},
 		  {"rotl", rotl},
@@ -89,7 +89,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 	};
 	int i = 0;
 	int o;
-	while (i < 6)
+	while (i < 9)
 	{
 		o = strcmp(ops[i].opcode, tokens);
 		if (o == 0)
@@ -106,7 +106,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
  * @argv: argument
  * Return: Always 0
  */
-int main(__attribute__((unused)) int argc, char **argv)
+int main(__attribute__((unused)) int argc,char **argv)
 {
 	stack_t *stack;
 	FILE *fil;
@@ -114,7 +114,9 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char *linea = NULL;
 	int bytesleidos = 0;
 	char *tokens;
+	char *opco;
 	unsigned int contador = 1;
+	int bndra = 0;
 
 	fil = fopen(argv[1], "r");
 	if (fil == NULL)
@@ -131,9 +133,19 @@ int main(__attribute__((unused)) int argc, char **argv)
 			{
 				tokens = strtok(NULL, " ");
 				if (tokens)
-					global = atoi(tokens);
-				func(opco)(&stack, contador);
+				  {
+				    if (verif(tokens) == 0)
+					hola.numero = atoi(tokens);
+				    else
+				      {
+					fprintf(stderr,"L%u: usage: push integer\n", contador);
+					bndra = 1;
+				      }
+				  }
+				if (bndra != 1)
+				  func(opco)(&stack, contador);
 				contador++;
+				bndra = 0;
 			}
 		}
 	}
