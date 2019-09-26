@@ -79,13 +79,15 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divi},
-		/*{"mul", mul},
-		  {"mod", mod},
-		  {"pchar", pchar},
-		  {"rotl", rotl},
-		  {"rotr", rotr},
-		  {"stack", stack},
-		  {"queue", queue},*/
+		/**
+		 *  {"mul", mul},
+		 * {"mod", mod},
+		 * {"pchar", pchar},
+		 * {"rotl", rotl},
+		 * {"rotr", rotr},
+		 * {"stack", stack},
+		 * {"queue", queue},
+		 */
 		{"err", err},
 		{NULL, NULL}
 	};
