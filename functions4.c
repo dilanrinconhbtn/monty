@@ -1,5 +1,12 @@
 #include "monty.h"
 
+
+/**
+ * pstri - pstri function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
 void pstr(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
