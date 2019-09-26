@@ -105,7 +105,7 @@ void push(stack_t **stack, unsigned int num_linea)
 	    if (ojo == NULL)
 	      {
 		fputs("Error: malloc failed\n", stderr);
-		exit(EXOT_FAILURE);
+		exit(EXIT_FAILURE);
 	      }
 	    ojo->n = hola.numero;
 	    ojo->next = NULL;
