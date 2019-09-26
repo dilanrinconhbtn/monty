@@ -1,4 +1,3 @@
-#define GB
 #include "monty.h"
 
 void err(stack_t **stack, unsigned int x)
@@ -52,4 +51,55 @@ void _mul(stack_t **stack, unsigned int num_linea)
       free_l(stack);
       exit(EXIT_FAILURE);
     }
+}
+
+void _mod(stack_t **stack, unsigned int num_linea)
+{
+  stack_t *ojo;
+  stack_t *ojo2;
+  int mul = 0;
+
+  if (*stack && (*stack)->next)
+    {
+      ojo2 = (*stack)->next;
+      mul = ojo2->n % (*stack)->n;
+      ojo = *stack;
+      *stack = (*stack)->next;
+      if (*stack)
+	(*stack)->prev = NULL;
+      free(ojo);
+      (*stack)->n = mul;
+    }
+  else
+    {
+      dprintf(2, "L%d: can't mod, stack too short\n", num_linea);
+      free(hola.linea);
+      fclose(hola.fil);
+      free_l(stack);
+      exit(EXIT_FAILURE);
+    }
+}
+
+void pchar(stack_t **stack, unsigned int num_linea)
+{
+  stack_t *ojo;
+
+  ojo = *stack;
+  if (ojo == NULL)
+    {
+      free(hola.linea);
+      fclose(hola.fil);
+      free_l(stack);
+      dprintf(2, "L%u can't pchar, stack empty\n", num_linea);
+      exit(EXIT_FAILURE);
+    }
+  if (ojo->n > 255)
+    {
+      free(hola.linea);
+      fclose(hola.fil);
+      free_l(stack);
+      dprintf(2, "L%d: can't pchar, value out of range\n", num_linea);
+      exit(EXIT_FAILURE);
+    }
+  printf("%c\n", ojo->n);
 }

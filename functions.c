@@ -131,17 +131,21 @@ void push(stack_t **stack, unsigned int num_linea)
 		ojo->prev = NULL;
 		if (*stack)
 		{
+		  if (hola.flag == 1)
+		    {
 			ojo->next = *stack;
 			(*stack)->prev = ojo;
 			*stack = ojo;
-/**
- * while ((*stack)->next)
- * *stack = (*stack)->next;
- * (*stack)->next = ojo;
- * ojo->prev = *stack;
- * while((*stack)->prev)
- * *stack = (*stack)->prev;
- */
+		    }
+		  else
+		    {
+		      while ((*stack)->next)
+			*stack = (*stack)->next;
+		      (*stack)->next = ojo;
+		      ojo->prev = *stack;
+		      while((*stack)->prev)
+			*stack = (*stack)->prev;
+		    }
 		}
 		else
 			*stack = ojo;

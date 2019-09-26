@@ -80,22 +80,20 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		{"sub", sub},
 		{"div", divi},
 		{"mul", _mul},
-		/**
-		 *  {"mul", mul},
-		 * {"mod", mod},
-		 * {"pchar", pchar},
-		 * {"rotl", rotl},
-		 * {"rotr", rotr},
-		 * {"stack", stack},
-		 * {"queue", queue},
-		 */
+		{"mod", _mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{"rotl", rotl},
+		{"rotr", rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{"err", err},
 		{NULL, NULL}
 	};
 	int i = 0;
 	int o;
 
-	while (i < 11)
+	while (i < 18)
 	{
 		o = strcmp(ops[i].opcode, tokens);
 		if (o == 0)
@@ -103,7 +101,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		i++;
 	}
 
-	return (ops[10].f);
+	return (ops[17].f);
 }
 
 /**
@@ -119,6 +117,7 @@ int main(int argc, char **argv)
 	int bytesleidos = 0;
 	unsigned int contador = 1;
 
+	hola.flag = 1;
 	hola.linea = NULL;
 	if (argc != 2)
 	{
