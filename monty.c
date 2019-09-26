@@ -1,5 +1,5 @@
 #define GB
-#include "header.h"
+#include "monty.h"
 
 
 /**
@@ -45,8 +45,8 @@ void pop(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
-		printf("error en la linea %ud\n", num_linea);
-		exit(0);
+	  fprintf(stderr, "L%d: can't pop an empty stack", num_linea);
+	  exit(1);
 	}
 	if((*stack)->next)
 	{

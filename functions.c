@@ -1,5 +1,5 @@
 #define GB
-#include "header.h"
+#include "monty.h"
 
 /**
  * swap - swap function
@@ -58,8 +58,8 @@ void pint(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
-		printf("error en la linea %ud\n", num_linea);
-		exit(0);
+	  fprintf(stderr, "L%u can't pint, stack empty\n", num_linea);
+	  exit(1);
 	}
 	printf("%d\n", ojo->n);
 }
