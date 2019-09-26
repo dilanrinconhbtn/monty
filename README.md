@@ -1,1 +1,1 @@
-This is a Readme fo test
+Is there a dedicated way to write a dummy line in C? (kind of like pass in Python) If you are wondering why I don't just leave a blank line, I need something that I can attach an Xcode breakpoint to-- if there is nothing there the breakpoint will skip to the next line!! So far I've been using sleep(0) for this purpose. I was wondering if there was a better/more efficient/more official way to accomplish this.

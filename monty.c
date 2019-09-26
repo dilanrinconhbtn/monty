@@ -116,7 +116,6 @@ int main(__attribute__((unused)) int argc,char **argv)
 	char *tokens;
 	char *opco;
 	unsigned int contador = 1;
-	int bndra = 0;
 
 	fil = fopen(argv[1], "r");
 	if (fil == NULL)
@@ -139,13 +138,14 @@ int main(__attribute__((unused)) int argc,char **argv)
 				    else
 				      {
 					fprintf(stderr,"L%u: usage: push integer\n", contador);
-					bndra = 1;
+					free_l(&stack);
+					free(linea);
+					fclose(fil);
+					exit(1);
 				      }
 				  }
-				if (bndra != 1)
-				  func(opco)(&stack, contador);
+				func(opco)(&stack, contador);
 				contador++;
-				bndra = 0;
 			}
 		}
 	}		
