@@ -142,7 +142,7 @@ int main(int argc, char **argv)
 				contador++;
 			}
 		}
-        }
+	}
 	free_l(&stack);
 	free(hola.linea);
 	fclose(hola.fil);
