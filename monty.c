@@ -86,12 +86,13 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		{"stack", stack},
 		{"queue", queue},
 		{"err", err},
+		{"#", nop},
 		{NULL, NULL}
 	};
 	int i = 0;
 	int o;
 
-	while (i < 18)
+	while (i < 19)
 	{
 		o = strcmp(ops[i].opcode, tokens);
 		if (o == 0)
@@ -99,7 +100,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		i++;
 	}
 
-	return (ops[17].f);
+	return (ops[18].f);
 }
 
 /**
@@ -131,7 +132,7 @@ int main(int argc, char **argv)
 	while ((bytesleidos = getline(&hola.linea, &numbytes, hola.fil)) != EOF)
 	{
 		quitarsalto(hola.linea);
-		if (hola.linea[0] != 00 && hola.linea[0] != 35 || hola.linea[0] != 35)
+		if (hola.linea[0] != 00 && hola.linea[0] != 35)
 		{
 			hola.token = strtok(hola.linea, " \t\n");
 			hola.opco = hola.token;
