@@ -134,7 +134,8 @@ void push(stack_t **stack, unsigned int num_linea)
 			ojo->next = *stack;
 			(*stack)->prev = ojo;
 			*stack = ojo;
-/** while ((*stack)->next)
+/**
+ * while ((*stack)->next)
  * *stack = (*stack)->next;
  * (*stack)->next = ojo;
  * ojo->prev = *stack;
