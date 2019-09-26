@@ -132,11 +132,11 @@ int main(int argc,char **argv)
 		quitarsalto(hola.linea);
 		if (hola.linea[0] != 00 && hola.linea[0] != 35)
 		{
-			hola.token = strtok(hola.linea, " ");
+			hola.token = strtok(hola.linea, " \t\n");
 			hola.opco = hola.token;
 			if (hola.opco != NULL)
 			{
-				hola.token = strtok(NULL, " ");
+				hola.token = strtok(NULL, " \t\n");
 				func(hola.opco)(&stack, contador);
 				contador++;
 			}
