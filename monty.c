@@ -79,6 +79,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divi},
+		{"mul", _mul},
 		/**
 		 *  {"mul", mul},
 		 * {"mod", mod},
@@ -94,7 +95,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 	int i = 0;
 	int o;
 
-	while (i < 10)
+	while (i < 11)
 	{
 		o = strcmp(ops[i].opcode, tokens);
 		if (o == 0)
@@ -102,7 +103,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		i++;
 	}
 
-	return (ops[9].f);
+	return (ops[10].f);
 }
 
 /**

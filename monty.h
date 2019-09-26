@@ -48,6 +48,7 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void _mul(stack_t **stack, unsigned int num_linea);
 void ver2(stack_t **stack, unsigned int x);
 void err(stack_t **stack, unsigned int x);
 void free_l(stack_t **stack);
