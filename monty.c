@@ -85,19 +85,20 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		  {"rotr", rotr},
 		  {"stack", stack},
 		  {"queue", queue},*/
+		{"err", err},
 		{NULL, NULL}
 	};
 	int i = 0;
 	int o;
-	while (i < 9)
+	while (i < 10)
 	{
 		o = strcmp(ops[i].opcode, tokens);
 		if (o == 0)
 			return (ops[i].f);
 		i++;
 	}
-	fputs("Error en la linea", stderr);
-	return (NULL);
+
+	return (ops[9].f);
 }
 
 /**
@@ -108,51 +109,54 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
  */
 int main(int argc,char **argv)
 {
-	stack_t *stack;
-	FILE *fil;
+	stack_t *stack = NULL;
 	size_t numbytes = 0;
-	char *linea = NULL, *tokens, *opco;
 	int bytesleidos = 0;
 	unsigned int contador = 1;
 
-	if (argc)
+	hola.linea = NULL;
+	if (argc != 2)
 	{
-		
+	  fputs("USAGE: monty file\n", stderr);
+	  exit(1);
 	}
-	fil = fopen(argv[1], "r");
-	if (fil == NULL)
-		exit(EXIT_FAILURE);
-	stack = NULL;
-	while((bytesleidos = getline(&linea, &numbytes, fil)) != EOF)
+	hola.fil = fopen(argv[1], "r");
+	if (hola.fil == NULL)
+	  {
+	    fprintf(stderr,"Error: Can't open file %s\n", argv[1]);
+	    exit(EXIT_FAILURE);
+
+	  }
+	while((bytesleidos = getline(&hola.linea, &numbytes, hola.fil)) != EOF)
 	{
-		quitarsalto(linea);
-		if (linea[0] != 00 && linea[0] != 35)
+		quitarsalto(hola.linea);
+		if (hola.linea[0] != 00 && hola.linea[0] != 35)
 		{
-			tokens = strtok(linea, " ");
-			opco = tokens;
-			if (opco != NULL)
+			hola.token = strtok(hola.linea, " ");
+			hola.opco = hola.token;
+			if (hola.opco != NULL)
 			{
-				tokens = strtok(NULL, " ");
-				if (tokens)
+				hola.token = strtok(NULL, " ");
+				if (hola.token)
 				{
-					if (verif(tokens) == 0)
-						hola.numero = atoi(tokens);
+					if (verif(hola.token) == 0)
+						hola.numero = atoi(hola.token);
 					else
 					{
 						fprintf(stderr,"L%u: usage: push integer\n", contador);
 						free_l(&stack);
-						free(linea);
-						fclose(fil);
+						free(hola.linea);
+						fclose(hola.fil);
 						exit(1);
 					}
 				}
-				func(opco)(&stack, contador);
+				func(hola.opco)(&stack, contador);
 				contador++;
 			}
 		}
         }
 	free_l(&stack);
-	free(linea);
-	fclose(fil);
+	free(hola.linea);
+	fclose(hola.fil);
 	return (0);
 }

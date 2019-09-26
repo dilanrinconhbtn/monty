@@ -12,6 +12,10 @@ typedef struct globales
 {
   int numero;
   int flag;
+  char *linea;
+  char *token;
+  char *opco;
+  FILE *fil;
 } g_t;
 g_t hola;
 #else
@@ -19,6 +23,10 @@ typedef struct globales
 {
   int numero;
   int flag;
+  char *linea;
+  char *token;
+  char *opco;
+  FILE *fil;
 } g_t;
 
 extern g_t hola;
@@ -53,6 +61,7 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void err(stack_t **stack, unsigned int x);
 void free_l(stack_t **stack);
 void divi(stack_t **stack, unsigned int num_linea);
 void sub(stack_t **stack, unsigned int num_linea);

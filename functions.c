@@ -92,13 +92,16 @@ void pall(stack_t **stack, unsigned int num_linea)
  * @num_linea: number of line
  * Return: Always 0 (Success)
  */
-void push(stack_t **stack, unsigned int num_linea)
+void push(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
 {
 	stack_t *ojo;
 
 	ojo = malloc(sizeof(stack_t));
 	if (ojo == NULL)
-		printf("Error en la linea %ud\n", num_linea);
+	  {
+		fputs("Error: malloc failed\n", stderr);
+		exit(1);
+	  }
 	ojo->n = hola.numero;
 	ojo->next = NULL;
 	ojo->prev = NULL;
