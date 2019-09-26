@@ -119,21 +119,21 @@ void push(stack_t **stack, unsigned int num_linea)
 
 	ver2(stack, num_linea);
 	if (hola.token)
-	  {
-	    ojo = malloc(sizeof(stack_t));
-	    if (ojo == NULL)
-	      {
-		fputs("Error: malloc failed\n", stderr);
-		exit(EXIT_FAILURE);
-	      }
-	    ojo->n = hola.numero;
-	    ojo->next = NULL;
-	    ojo->prev = NULL;
-	    if (*stack)
-	      {
-		ojo->next = *stack;
-		(*stack)->prev = ojo;
-		*stack = ojo;
+	{
+		ojo = malloc(sizeof(stack_t));
+		if (ojo == NULL)
+		{
+			fputs("Error: malloc failed\n", stderr);
+			exit(EXIT_FAILURE);
+		}
+		ojo->n = hola.numero;
+		ojo->next = NULL;
+		ojo->prev = NULL;
+		if (*stack)
+		{
+			ojo->next = *stack;
+			(*stack)->prev = ojo;
+			*stack = ojo;
 /** while ((*stack)->next)
  * *stack = (*stack)->next;
  * (*stack)->next = ojo;
@@ -141,16 +141,16 @@ void push(stack_t **stack, unsigned int num_linea)
  * while((*stack)->prev)
  * *stack = (*stack)->prev;
  */
-	      }
-	    else
-	      *stack = ojo;
-	  }
+		}
+		else
+			*stack = ojo;
+	}
 	else
-	  {
-	    free(hola.linea);
-	    fclose(hola.fil);
-	    dprintf(2, "L%u: usage: push integer\n", num_linea);
-	    free_l(stack);
-            exit(EXIT_FAILURE);
-          }
+	{
+		free(hola.linea);
+		fclose(hola.fil);
+		dprintf(2, "L%u: usage: push integer\n", num_linea);
+		free_l(stack);
+		exit(EXIT_FAILURE);
+	}
 }
