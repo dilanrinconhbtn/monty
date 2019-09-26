@@ -9,27 +9,26 @@ void swap(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
 
-	
 	if (*stack && (*stack)->next)
-	  {
-	    ojo = (*stack)->next;
-	    if (ojo == NULL)
-	      {
-		exit(0);
-	      }
-	    (*stack)->next = ojo->next;
-	    (*stack)->prev = ojo;
-	    ojo->next = *stack;
-	    ojo->prev = NULL;
-	    *stack = ojo;
-	  }
+	{
+		ojo = (*stack)->next;
+		if (ojo == NULL)
+		{
+			exit(0);
+		}
+		(*stack)->next = ojo->next;
+		(*stack)->prev = ojo;
+		ojo->next = *stack;
+		ojo->prev = NULL;
+		*stack = ojo;
+	}
 	else
-	  {
-	  dprintf(2,"L%u: can't swap, stack too short\n",num_linea);
-	  free(hola.linea);
-	  fclose(hola.fil);
-	  exit(EXIT_FAILURE);
-	  }
+	{
+		dprintf(2,"L%u: can't swap, stack too short\n",num_linea);
+		free(hola.linea);
+		fclose(hola.fil);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
@@ -44,25 +43,24 @@ void add(stack_t **stack, unsigned int num_linea)
 	int suma = 0;
 
 	if (*stack && (*stack)->next)
-	  {
-	    
-	    ojo2 = (*stack)->next;
-	    suma = (*stack)->n + ojo2->n;
-	    ojo = *stack;
-	    *stack = (*stack)->next;
-	    if (*stack)
-	      (*stack)->prev = NULL;
-	    free(ojo);
-	    (*stack)->n = suma;
-	  }
+	{
+		ojo2 = (*stack)->next;
+		suma = (*stack)->n + ojo2->n;
+		ojo = *stack;
+		*stack = (*stack)->next;
+		if (*stack)
+			(*stack)->prev = NULL;
+		free(ojo);
+		(*stack)->n = suma;
+	}
 	else
-	  {
-	    dprintf(2,"L%d: can't add, stack too short\n", num_linea);
-            free(hola.linea);
-            fclose(hola.fil);
-            free_l(stack);
-            exit(EXIT_FAILURE);
-	  }
+	{
+		dprintf(2,"L%d: can't add, stack too short\n", num_linea);
+		free(hola.linea);
+		fclose(hola.fil);
+		free_l(stack);
+		exit(EXIT_FAILURE);
+	}
 }
 
 
@@ -79,11 +77,11 @@ void pint(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
-	  free(hola.linea);
-	  fclose(hola.fil);
-	  free_l(stack);
-	  dprintf(2, "L%u can't pint, stack empty\n", num_linea);
-	  exit(EXIT_FAILURE);
+		free(hola.linea);
+		fclose(hola.fil);
+		free_l(stack);
+		dprintf(2, "L%u can't pint, stack empty\n", num_linea);
+		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", ojo->n);
 }
@@ -101,12 +99,11 @@ void pall(stack_t **stack, unsigned int num_linea)
 
 	ojo = *stack;
 	if (num_linea)
-
-	  while(ojo)
-	{
-	  printf("%d\n", ojo->n);
-	  ojo = ojo->next;
-	}	
+		while(ojo)
+		{
+			printf("%d\n", ojo->n);
+			ojo = ojo->next;
+		}
 }
 
 
