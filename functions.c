@@ -2,7 +2,7 @@
 
 /**
  * swap - swap function
- * @stack_t: head node
+ * @stack: head node
  * Return: Void function
  */
 void swap(stack_t **stack, unsigned int num_linea)
@@ -24,7 +24,7 @@ void swap(stack_t **stack, unsigned int num_linea)
 	}
 	else
 	{
-		dprintf(2,"L%u: can't swap, stack too short\n",num_linea);
+		dprintf(2, "L%u: can't swap, stack too short\n", num_linea);
 		free(hola.linea);
 		fclose(hola.fil);
 		exit(EXIT_FAILURE);
@@ -55,7 +55,7 @@ void add(stack_t **stack, unsigned int num_linea)
 	}
 	else
 	{
-		dprintf(2,"L%d: can't add, stack too short\n", num_linea);
+		dprintf(2, "L%d: can't add, stack too short\n", num_linea);
 		free(hola.linea);
 		fclose(hola.fil);
 		free_l(stack);
@@ -99,7 +99,7 @@ void pall(stack_t **stack, unsigned int num_linea)
 
 	ojo = *stack;
 	if (num_linea)
-		while(ojo)
+		while (ojo)
 		{
 			printf("%d\n", ojo->n);
 			ojo = ojo->next;
@@ -119,38 +119,39 @@ void push(stack_t **stack, unsigned int num_linea)
 
 	ver2(stack, num_linea);
 	if (hola.token)
-	  {
-	    ojo = malloc(sizeof(stack_t));
-	    if (ojo == NULL)
-	      {
-		fputs("Error: malloc failed\n", stderr);
-		exit(EXIT_FAILURE);
-	      }
-	    ojo->n = hola.numero;
-	    ojo->next = NULL;
-	    ojo->prev = NULL;
-	    if (*stack)
-	      {
-		ojo->next = *stack;
-		(*stack)->prev = ojo;
-		*stack = ojo;
-/** while ((*stack)->next)
+	{
+		ojo = malloc(sizeof(stack_t));
+		if (ojo == NULL)
+		{
+			fputs("Error: malloc failed\n", stderr);
+			exit(EXIT_FAILURE);
+		}
+		ojo->n = hola.numero;
+		ojo->next = NULL;
+		ojo->prev = NULL;
+		if (*stack)
+		{
+			ojo->next = *stack;
+			(*stack)->prev = ojo;
+			*stack = ojo;
+/**
+ * while ((*stack)->next)
  * *stack = (*stack)->next;
  * (*stack)->next = ojo;
  * ojo->prev = *stack;
  * while((*stack)->prev)
  * *stack = (*stack)->prev;
  */
-	      }
-	    else
-	      *stack = ojo;
-	  }
+		}
+		else
+			*stack = ojo;
+	}
 	else
-	  {
-	    free(hola.linea);
-	    fclose(hola.fil);
-	    dprintf(2, "L%u: usage: push integer\n", num_linea);
-	    free_l(stack);
-            exit(EXIT_FAILURE);
-          }
+	{
+		free(hola.linea);
+		fclose(hola.fil);
+		dprintf(2, "L%u: usage: push integer\n", num_linea);
+		free_l(stack);
+		exit(EXIT_FAILURE);
+	}
 }
