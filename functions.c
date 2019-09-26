@@ -1,8 +1,12 @@
 #include "header.h"
-char *opco;
-int global;
 
-void swap(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
+
+/**
+ * swap - swap function
+ * @stack_t: head node
+ * Return: Void function
+ */
+void swap(stack_t **stack, __attribute__((unused)) unsigned int num_linea)
 {
 	stack_t *ojo;
 
@@ -18,8 +22,12 @@ void swap(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
 	*stack = ojo;
 }
 
-
-void add(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
+/**
+ * add - add function
+ * @stack: head
+ * Return: void function
+ */
+void add(stack_t **stack, __attribute__((unused)) unsigned int num_linea)
 {
 	stack_t *ojo;
 	stack_t *ojo2 = (*stack)->next;
@@ -36,6 +44,13 @@ void add(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
 	(*stack)->n = suma;
 }
 
+
+/**
+ * pint - pint function
+ * @stack: head
+ * @num_linea: num linea
+ * Return: void function
+ */
 void pint(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
@@ -50,9 +65,16 @@ void pint(stack_t **stack, unsigned int num_linea)
 }
 
 
+/**
+ * pall - pall function
+ * @stack: head
+ * @num_linea: num linea
+ * Return: void function
+ */
 void pall(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
+
 	ojo = *stack;
 	if (ojo != NULL)
 	{
@@ -75,7 +97,12 @@ void pall(stack_t **stack, unsigned int num_linea)
 }
 
 
-
+/**
+ * push - push function
+ * @stack: head
+ * @num_linea: number of line
+ * Return: Always 0 (Success)
+ */
 void push(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
@@ -91,12 +118,13 @@ void push(stack_t **stack, unsigned int num_linea)
 		ojo->next = *stack;
 		(*stack)->prev = ojo;
 		*stack = ojo;
-		/*     while ((*stack)->next)
-		 *stack = (*stack)->next;
-		 (*stack)->next = ojo;
-		 ojo->prev = *stack;
-		 while((*stack)->prev)
-		 *stack = (*stack)->prev;*/
+/** while ((*stack)->next)
+ * *stack = (*stack)->next;
+ * (*stack)->next = ojo;
+ * ojo->prev = *stack;
+ * while((*stack)->prev)
+ * *stack = (*stack)->prev;
+ */
 	}
 	else
 		*stack = ojo;
