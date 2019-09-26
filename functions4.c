@@ -21,6 +21,13 @@ void pstr(stack_t **stack, unsigned int num_linea)
 	printf("\n");
 }
 
+/**
+ * rotl - rotl function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
+
 void rotl(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo, *ojo2;
