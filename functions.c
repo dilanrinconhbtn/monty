@@ -96,17 +96,19 @@ void push(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
 {
 	stack_t *ojo;
 
-	ojo = malloc(sizeof(stack_t));
-	if (ojo == NULL)
+	if (hola.token)
 	  {
+	    ojo = malloc(sizeof(stack_t));
+	    if (ojo == NULL)
+	      {
 		fputs("Error: malloc failed\n", stderr);
 		exit(1);
-	  }
-	ojo->n = hola.numero;
-	ojo->next = NULL;
-	ojo->prev = NULL;
-	if (*stack)
-	{
+	      }
+	    ojo->n = hola.numero;
+	    ojo->next = NULL;
+	    ojo->prev = NULL;
+	    if (*stack)
+	      {
 		ojo->next = *stack;
 		(*stack)->prev = ojo;
 		*stack = ojo;
@@ -117,7 +119,17 @@ void push(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
  * while((*stack)->prev)
  * *stack = (*stack)->prev;
  */
-	}
+	      }
+	    else
+	      *stack = ojo;
+	  }
 	else
-		*stack = ojo;
+	  {
+	    free(hola.linea);
+	    fclose(hola.fil);
+	    fprintf(stderr, "L%u: usage: push integer\n", num_linea);
+            exit(1);
+          }
+
+
 }
