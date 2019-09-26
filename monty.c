@@ -1,6 +1,5 @@
-#define GB
 #include "monty.h"
-
+g_t hola;
 
 /**
  * tamanio - size

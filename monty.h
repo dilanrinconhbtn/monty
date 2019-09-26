@@ -7,18 +7,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#ifdef GB
-typedef struct globales
-{
-  char numero;
-  int flag;
-  char *linea;
-  char *token;
-  char *opco;
-  FILE *fil;
-} g_t;
-g_t hola;
-#else
 typedef struct globales
 {
   int numero;
@@ -30,7 +18,6 @@ typedef struct globales
 } g_t;
 
 extern g_t hola;
-#endif
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
