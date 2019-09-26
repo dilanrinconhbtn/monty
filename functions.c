@@ -92,10 +92,11 @@ void pall(stack_t **stack, unsigned int num_linea)
  * @num_linea: number of line
  * Return: Always 0 (Success)
  */
-void push(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
+void push(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
 
+	ver2(stack, num_linea);
 	if (hola.token)
 	  {
 	    ojo = malloc(sizeof(stack_t));
