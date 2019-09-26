@@ -62,8 +62,6 @@ void pop(stack_t **stack, unsigned int num_linea)
 /**
  * func - pointers to functions
  * @tokens: arguments
- * @stack: head of the linked
- * @num_linea: number of the line
  * Return: NULL
  */
 
