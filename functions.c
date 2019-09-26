@@ -2,7 +2,7 @@
 
 /**
  * swap - swap function
- * @stack_t: head node
+ * @stack: head node
  * Return: Void function
  */
 void swap(stack_t **stack, unsigned int num_linea)
