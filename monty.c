@@ -106,7 +106,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
  * @argv: argument
  * Return: Always 0
  */
-int main(__attribute__((unused)) int argc,char **argv)
+int main(int argc,char **argv)
 {
 	stack_t *stack;
 	FILE *fil;
@@ -117,6 +117,10 @@ int main(__attribute__((unused)) int argc,char **argv)
 	char *opco;
 	unsigned int contador = 1;
 
+	if (argc)
+	  {
+
+	  }
 	fil = fopen(argv[1], "r");
 	if (fil == NULL)
 		exit(EXIT_FAILURE);
