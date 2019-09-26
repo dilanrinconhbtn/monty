@@ -5,20 +5,30 @@
  * @stack_t: head node
  * Return: Void function
  */
-void swap(stack_t **stack, __attribute__((unused)) unsigned int num_linea)
+void swap(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
 
-	ojo = (*stack)->next;
-	if (ojo == NULL)
-	{
+	
+	if (*stack && (*stack)->next)
+	  {
+	    ojo = (*stack)->next;
+	    if (ojo == NULL)
+	      {
 		exit(0);
-	}
-	(*stack)->next = ojo->next;
-	(*stack)->prev = ojo;
-	ojo->next = *stack;
-	ojo->prev = NULL;
-	*stack = ojo;
+	      }
+	    (*stack)->next = ojo->next;
+	    (*stack)->prev = ojo;
+	    ojo->next = *stack;
+	    ojo->prev = NULL;
+	    *stack = ojo;
+	  }
+	else
+	  dprintf(2,"L%u: can't swap, stack too short\n",num_linea);
+	free(hola.linea);
+	fclose(hola.fil);
+	exit(EXIT_FAILURE);
+ 
 }
 
 /**
