@@ -30,7 +30,7 @@ void sub(stack_t **stack, unsigned int num_linea)
   int resta = 0;
 
   if (!((*stack)->next))
-    fprintf(stderr, "L%u: can't sub, stack too short\n", num_linea);
+    dprintf(2, "L%u: can't sub, stack too short\n", num_linea);
   resta = ojo2->n - (*stack)->n;
   ojo = *stack;
   *stack = (*stack)->next;
@@ -46,10 +46,10 @@ void divi(stack_t **stack, unsigned int num_linea)
   int div = 0;
 
   if (!((*stack)->next))
-    fprintf(stderr, "L%u: can't sub, stack too short\n", num_linea);
+    dprintf(2, "L%u: can't sub, stack too short\n", num_linea);
   if ((*stack)->n == 0)
     {
-      fprintf(stderr, "L%u: division by zero\n", num_linea);
+      dprintf(2, "L%u: division by zero\n", num_linea);
       exit(EXIT_FAILURE);
     }
 

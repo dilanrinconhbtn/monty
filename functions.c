@@ -130,7 +130,7 @@ void push(stack_t **stack, unsigned int num_linea)
 	  {
 	    free(hola.linea);
 	    fclose(hola.fil);
-	    fprintf(stderr, "L%u: usage: push integer\n", num_linea);
+	    dprintf(2, "L%u: usage: push integer\n", num_linea);
 	    free_l(stack);
             exit(EXIT_FAILURE);
           }

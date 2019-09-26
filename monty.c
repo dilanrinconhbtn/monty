@@ -44,7 +44,7 @@ void pop(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
-	  fprintf(stderr, "L%d: can't pop an empty stack", num_linea);
+	  dprintf(2, "L%d: can't pop an empty stack", num_linea);
 	  exit(EXIT_FAILURE);
 	}
 	if((*stack)->next)
@@ -122,7 +122,7 @@ int main(int argc,char **argv)
 	hola.fil = fopen(argv[1], "r");
 	if (hola.fil == NULL)
 	  {
-	    fprintf(stderr,"Error: Can't open file %s\n", argv[1]);
+	    dprintf(2,"Error: Can't open file %s\n", argv[1]);
 	    exit(EXIT_FAILURE);
 
 	  }
