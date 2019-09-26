@@ -61,6 +61,15 @@ void _mod(stack_t **stack, unsigned int num_linea)
 
   if (*stack && (*stack)->next)
     {
+      if ((*stack)->n == 0)
+	{
+	  dprintf(2, "L%u: division by zero\n", num_linea);
+	  free(hola.linea);
+	  fclose(hola.fil);
+	  free_l(stack);
+	  exit(EXIT_FAILURE);
+	}
+
       ojo2 = (*stack)->next;
       mul = ojo2->n % (*stack)->n;
       ojo = *stack;

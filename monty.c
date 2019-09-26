@@ -131,7 +131,7 @@ int main(int argc, char **argv)
 	while ((bytesleidos = getline(&hola.linea, &numbytes, hola.fil)) != EOF)
 	{
 		quitarsalto(hola.linea);
-		if (hola.linea[0] != 00 && hola.linea[0] != 35)
+		if (hola.linea[0] != 00 && hola.linea[0] != 35 || hola.linea[0] != 35)
 		{
 			hola.token = strtok(hola.linea, " \t\n");
 			hola.opco = hola.token;
