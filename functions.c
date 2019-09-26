@@ -1,4 +1,3 @@
-#define GB
 #include "monty.h"
 
 /**
@@ -62,7 +61,7 @@ void pint(stack_t **stack, unsigned int num_linea)
 	  fclose(hola.fil);
 	  free_l(stack);
 	  fprintf(stderr, "L%u can't pint, stack empty\n", num_linea);
-	  exit(1);
+	  exit(EXIT_FAILURE);
 	}
 	printf("%d\n", ojo->n);
 }
@@ -106,7 +105,7 @@ void push(stack_t **stack, unsigned int num_linea)
 	    if (ojo == NULL)
 	      {
 		fputs("Error: malloc failed\n", stderr);
-		exit(1);
+		exit(EXOT_FAILURE);
 	      }
 	    ojo->n = hola.numero;
 	    ojo->next = NULL;
@@ -133,8 +132,6 @@ void push(stack_t **stack, unsigned int num_linea)
 	    fclose(hola.fil);
 	    fprintf(stderr, "L%u: usage: push integer\n", num_linea);
 	    free_l(stack);
-            exit(1);
+            exit(EXIT_FAILURE);
           }
-
-
 }

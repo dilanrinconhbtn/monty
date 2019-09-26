@@ -45,7 +45,7 @@ void pop(stack_t **stack, unsigned int num_linea)
 	if (ojo == NULL)
 	{
 	  fprintf(stderr, "L%d: can't pop an empty stack", num_linea);
-	  exit(1);
+	  exit(EXIT_FAILURE);
 	}
 	if((*stack)->next)
 	{
@@ -117,7 +117,7 @@ int main(int argc,char **argv)
 	if (argc != 2)
 	{
 	  fputs("USAGE: monty file\n", stderr);
-	  exit(1);
+	  exit(EXIT_FAILURE);
 	}
 	hola.fil = fopen(argv[1], "r");
 	if (hola.fil == NULL)
