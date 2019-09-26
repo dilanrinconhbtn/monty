@@ -28,7 +28,7 @@ char quitarsalto(char *linea)
 	int ta = tamanio(linea);
 
 	linea[ta - 1] = '\0';
-	return(*linea);
+	return (*linea);
 }
 
 /**
@@ -44,19 +44,19 @@ void pop(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
-	  dprintf(2, "L%d: can't pop an empty stack", num_linea);
-	  free(hola.linea);
-	  fclose(hola.fil);
-	  exit(EXIT_FAILURE);
+		dprintf(2, "L%d: can't pop an empty stack", num_linea);
+		free(hola.linea);
+		fclose(hola.fil);
+		exit(EXIT_FAILURE);
 	}
-	if((*stack)->next)
+	if ((*stack)->next)
 	{
 		*stack = ojo->next;
 		(*stack)->prev = NULL;
 		free(ojo);
 	}
 	else
-	  free_l(stack);
+		free_l(stack);
 }
 
 /**
@@ -79,18 +79,21 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		{"nop", nop},
 		{"sub", sub},
 		{"div", divi},
-		/*{"mul", mul},
-		  {"mod", mod},
-		  {"pchar", pchar},
-		  {"rotl", rotl},
-		  {"rotr", rotr},
-		  {"stack", stack},
-		  {"queue", queue},*/
+		/**
+		 *  {"mul", mul},
+		 * {"mod", mod},
+		 * {"pchar", pchar},
+		 * {"rotl", rotl},
+		 * {"rotr", rotr},
+		 * {"stack", stack},
+		 * {"queue", queue},
+		 */
 		{"err", err},
 		{NULL, NULL}
 	};
 	int i = 0;
 	int o;
+
 	while (i < 10)
 	{
 		o = strcmp(ops[i].opcode, tokens);
@@ -108,7 +111,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
  * @argv: argument
  * Return: Always 0
  */
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
 	stack_t *stack = NULL;
 	size_t numbytes = 0;
@@ -118,17 +121,16 @@ int main(int argc,char **argv)
 	hola.linea = NULL;
 	if (argc != 2)
 	{
-	  fputs("USAGE: monty file\n", stderr);
-	  exit(EXIT_FAILURE);
+		fputs("USAGE: monty file\n", stderr);
+		exit(EXIT_FAILURE);
 	}
 	hola.fil = fopen(argv[1], "r");
 	if (hola.fil == NULL)
-	  {
-	    dprintf(2,"Error: Can't open file %s\n", argv[1]);
-	    exit(EXIT_FAILURE);
-
-	  }
-	while((bytesleidos = getline(&hola.linea, &numbytes, hola.fil)) != EOF)
+	{
+		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	while ((bytesleidos = getline(&hola.linea, &numbytes, hola.fil)) != EOF)
 	{
 		quitarsalto(hola.linea);
 		if (hola.linea[0] != 00 && hola.linea[0] != 35)
@@ -142,7 +144,7 @@ int main(int argc,char **argv)
 				contador++;
 			}
 		}
-        }
+	}
 	free_l(&stack);
 	free(hola.linea);
 	fclose(hola.fil);
