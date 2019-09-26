@@ -45,6 +45,15 @@ void rotl(stack_t **stack, unsigned int num_linea)
 	ojo->prev = ojo2;
 	ojo->next = NULL;
 }
+
+
+/**
+ * rotr - rotr function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
+
 void rotr(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo2;
@@ -60,6 +69,13 @@ void rotr(stack_t **stack, unsigned int num_linea)
 	ojo2->prev = NULL;
 	*stack = ojo2;
 }
+
+/**
+ * queue - queue function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
 
 void queue(stack_t **stack, unsigned int num_linea)
 {
