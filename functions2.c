@@ -2,26 +2,25 @@
 
 int verif(char *numero)
 {
+	int ojo = 0;
 
-  int ojo = 0;
+	if (!numero)
+		return (1);
 
-  if (!numero)
-    return (1);
-
-  if (numero[ojo] == 45)
-    ojo++;
-  while(numero[ojo])
-    {
-      if (numero[ojo] < 48 || numero[ojo] > 57)
-	return (-1);
-      ojo++;
-    }
-  return (0);
+	if (numero[ojo] == 45)
+		ojo++;
+	while(numero[ojo])
+	{
+		if (numero[ojo] < 48 || numero[ojo] > 57)
+			return (-1);
+		ojo++;
+	}
+	return (0);
 }
 void nop(stack_t **stack, unsigned int num_linea)
 {
-  if (*stack){};
-  if (num_linea){};
+	if (*stack){};
+	if (num_linea){};
 }
 void sub(stack_t **stack, unsigned int num_linea)
 {
