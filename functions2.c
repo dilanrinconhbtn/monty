@@ -56,4 +56,14 @@ void divi(stack_t **stack, unsigned int num_linea)
   free(ojo);
   (*stack)->n = div;
 }
-     
+void free_l(stack_t **stack)
+{
+  stack_t *cleaner = *stack;
+ 
+  while (*stack)
+    {
+      cleaner = cleaner->next;
+      free(*stack);
+      *stack = cleaner;
+    }
+}     

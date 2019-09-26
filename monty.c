@@ -148,6 +148,10 @@ int main(__attribute__((unused)) int argc,char **argv)
 				bndra = 0;
 			}
 		}
-	}
+	}		
+	free_l(&stack);
+	free(linea);
+	fclose(fil);
+	
 	return (0);
 }

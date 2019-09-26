@@ -53,6 +53,7 @@ typedef struct instruction_s
   void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void free_l(stack_t **stack);
 void divi(stack_t **stack, unsigned int num_linea);
 void sub(stack_t **stack, unsigned int num_linea);
 void nop(stack_t **stack, unsigned int num_linea);
