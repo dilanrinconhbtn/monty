@@ -3,7 +3,7 @@
 void pstr(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo;
-	
+
 	ojo = *stack;
 	if (num_linea)
 		while (ojo && ojo->n != 0 && ojo->n > 0 && ojo->n < 256)
@@ -17,7 +17,7 @@ void pstr(stack_t **stack, unsigned int num_linea)
 void rotl(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo, *ojo2;
-	
+
 	ojo = *stack;
 	ojo2 = ojo;
 	*stack = ojo->next;
@@ -34,7 +34,7 @@ void rotl(stack_t **stack, unsigned int num_linea)
 void rotr(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo2;
-	
+
 	ojo2 = *stack;
 	if (num_linea)
 		while (ojo2->next)
