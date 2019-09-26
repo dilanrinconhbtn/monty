@@ -128,6 +128,7 @@ void push(stack_t **stack,__attribute__((unused)) unsigned int num_linea)
 	    free(hola.linea);
 	    fclose(hola.fil);
 	    fprintf(stderr, "L%u: usage: push integer\n", num_linea);
+	    free_l(stack);
             exit(1);
           }
 
