@@ -5,7 +5,7 @@ void pstr(stack_t **stack, unsigned int num_linea)
 
   ojo = *stack;
   if (num_linea)
-    while (ojo && ojo->n != 0)
+    while (ojo && ojo->n != 0 && ojo->n > 0 && ojo->n < 256)
       {
         printf("%c", ojo->n);
         ojo = ojo->next;
