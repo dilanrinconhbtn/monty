@@ -3,6 +3,7 @@
 /**
  * swap - swap function
  * @stack: head node
+ * @num_linea: number of line
  * Return: Void function
  */
 void swap(stack_t **stack, unsigned int num_linea)
@@ -34,6 +35,7 @@ void swap(stack_t **stack, unsigned int num_linea)
 /**
  * add - add function
  * @stack: head
+ * @num_linea: number of line
  * Return: void function
  */
 void add(stack_t **stack, unsigned int num_linea)
@@ -131,29 +133,26 @@ void push(stack_t **stack, unsigned int num_linea)
 		ojo->prev = NULL;
 		if (*stack)
 		{
-		  if (hola.flag == 1)
-		    {
-			ojo->next = *stack;
-			(*stack)->prev = ojo;
-			*stack = ojo;
-		    }
-		  else
-		    {
-		      while ((*stack)->next)
-			*stack = (*stack)->next;
-		      (*stack)->next = ojo;
-		      ojo->prev = *stack;
-		      while((*stack)->prev)
-			*stack = (*stack)->prev;
-		    }
+			if (hola.flag == 1)
+			{
+				ojo->next = *stack, (*stack)->prev = ojo;
+				*stack = ojo;
+			}
+			else
+			{
+				while ((*stack)->next)
+					*stack = (*stack)->next;
+				(*stack)->next = ojo, ojo->prev = *stack;
+				while ((*stack)->prev)
+					*stack = (*stack)->prev;
+			}
 		}
 		else
 			*stack = ojo;
 	}
 	else
 	{
-		free(hola.linea);
-		fclose(hola.fil);
+		free(hola.linea), fclose(hola.fil);
 		dprintf(2, "L%u: usage: push integer\n", num_linea);
 		free_l(stack);
 		exit(EXIT_FAILURE);
