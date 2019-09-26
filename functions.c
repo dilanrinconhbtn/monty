@@ -24,11 +24,12 @@ void swap(stack_t **stack, unsigned int num_linea)
 	    *stack = ojo;
 	  }
 	else
+	  {
 	  dprintf(2,"L%u: can't swap, stack too short\n",num_linea);
-	free(hola.linea);
-	fclose(hola.fil);
-	exit(EXIT_FAILURE);
- 
+	  free(hola.linea);
+	  fclose(hola.fil);
+	  exit(EXIT_FAILURE);
+	  }
 }
 
 /**
