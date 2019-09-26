@@ -58,6 +58,9 @@ void pint(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
+	  free(hola.linea);
+	  fclose(hola.fil);
+	  free_l(stack);
 	  fprintf(stderr, "L%u can't pint, stack empty\n", num_linea);
 	  exit(1);
 	}
