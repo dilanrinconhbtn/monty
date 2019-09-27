@@ -136,7 +136,8 @@ void push(stack_t **stack, unsigned int num_linea)
 		{
 			if (hola.flag == 1)
 			{
-				ojo->next = *stack, (*stack)->prev = ojo;
+			  ojo->next = *stack;
+			  (*stack)->prev = ojo;
 				*stack = ojo;
 			}
 			else
