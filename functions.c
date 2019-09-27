@@ -129,8 +129,7 @@ void push(stack_t **stack, unsigned int num_linea)
 			fputs("Error: malloc failed\n", stderr);
 			exit(EXIT_FAILURE);
 		}
-		ojo->n = hola.numero;
-		ojo->next = NULL;
+		ojo->n = hola.numero, ojo->next = NULL;
 		ojo->prev = NULL;
 		if (*stack)
 		{
