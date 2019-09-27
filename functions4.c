@@ -21,6 +21,13 @@ void pstr(stack_t **stack, unsigned int num_linea)
 	printf("\n");
 }
 
+/**
+ * rotl - rotl function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
+
 void rotl(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo, *ojo2;
@@ -38,6 +45,15 @@ void rotl(stack_t **stack, unsigned int num_linea)
 	ojo->prev = ojo2;
 	ojo->next = NULL;
 }
+
+
+/**
+ * rotr - rotr function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
+
 void rotr(stack_t **stack, unsigned int num_linea)
 {
 	stack_t *ojo2;
@@ -54,11 +70,26 @@ void rotr(stack_t **stack, unsigned int num_linea)
 	*stack = ojo2;
 }
 
+/**
+ * queue - queue function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
+
 void queue(stack_t **stack, unsigned int num_linea)
 {
 	if (stack || num_linea)
 		hola.flag = 0;
 }
+
+/**
+ * stack - stack function
+ * @stack: head
+ * @num_linea: num linea
+ * Return Nothing
+ */
+
 void stack(stack_t **stack, unsigned int num_linea)
 {
 	if (stack || num_linea)
