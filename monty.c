@@ -44,7 +44,7 @@ void pop(stack_t **stack, unsigned int num_linea)
 	ojo = *stack;
 	if (ojo == NULL)
 	{
-		dprintf(2, "L%d: can't pop an empty stack", num_linea);
+		dprintf(2, "L%d: can't pop an empty stack\n", num_linea);
 		free(hola.linea);
 		fclose(hola.fil);
 		free_l(stack);
