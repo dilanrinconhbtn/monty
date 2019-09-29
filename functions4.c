@@ -2,7 +2,7 @@
 
 
 /**
- * pstri - pstri function
+ * pstr - pstri function
  * @stack: head
  * @num_linea: num linea
  * Return Nothing
