@@ -13,7 +13,7 @@ void pstr(stack_t **stack, unsigned int num_linea)
 
 	ojo = *stack;
 	if (num_linea)
-		while (ojo && ojo->n != 0 && ojo->n > 0 && ojo->n < 256)
+		while (ojo && ojo->n != 0 && ojo->n > 0 && ojo->n < 128)
 		{
 			printf("%c", ojo->n);
 			ojo = ojo->next;
