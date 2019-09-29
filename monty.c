@@ -101,7 +101,7 @@ void (*func(char *tokens))(stack_t **stack, unsigned int num_linea)
 		i++;
 	}
 
-	return (ops[18].f);
+	return (ops[17].f);
 }
 
 /**
@@ -133,7 +133,7 @@ int main(int argc, char **argv)
 	while ((bytesleidos = getline(&hola.linea, &numbytes, hola.fil)) != EOF)
 	{
 		quitarsalto(hola.linea);
-		if (hola.linea[0] != 00 && hola.linea[0] != 35)
+		if (hola.linea[0] != 35)
 		{
 			hola.token = strtok(hola.linea, " \t\n");
 			hola.opco = hola.token;
@@ -141,8 +141,8 @@ int main(int argc, char **argv)
 			{
 				hola.token = strtok(NULL, " \t\n");
 				func(hola.opco)(&stack, contador);
-				contador++;
 			}
+			contador++;
 		}
 	}
 	free_l(&stack);

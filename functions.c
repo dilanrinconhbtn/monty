@@ -143,8 +143,7 @@ void push(stack_t **stack, unsigned int num_linea)
 			else
 			{
 				while ((*stack)->next)
-					*stack = (*stack)->next;
-				(*stack)->next = ojo, ojo->prev = *stack;
+					*stack = (*stack)->next;				(*stack)->next = ojo, ojo->prev = *stack;
 				while ((*stack)->prev)
 					*stack = (*stack)->prev;
 			}
